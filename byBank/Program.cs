@@ -5,7 +5,8 @@ using System;
 class Program
 {
     static void Main(string[] args)
-    {
+    {   
+        //Iniciando os testes de objetos e definindo valiações
         /*ContaCorrente contaDoAndre = new ContaCorrente();
         contaDoAndre.titular = "André Silva";
         contaDoAndre.numeroAgencia = 15;
@@ -64,6 +65,7 @@ class Program
 
         Console.WriteLine("Informações da Maria/Saldo = R$" + contaDoPedro.saldo);*/
 
+        //Chamada de objetos usando os metodos construtores padrões
         /*Cliente cliente = new Cliente();
         cliente.nome = "André Silva";
         cliente.cpf = "12345678900";
@@ -92,7 +94,8 @@ class Program
         conta2.saldo = 500;
 
         Console.WriteLine("Titular = " + conta2.titular.nome);*/
-
+        
+        //Testando o metodo SetSaldo
         /*ContaCorrente conta3 = new ContaCorrente();
         conta3.SetSaldo(200.0);
         conta3.NumeroAgencia = 18;
@@ -102,6 +105,7 @@ class Program
         Console.WriteLine(conta3.NumeroAgencia);
         Console.WriteLine(conta3.GetSaldo());*/
 
+        //Testando o metodo GetSaldo
         /*ContaCorrente conta4 = new ContaCorrente(18, "1010-X");
 
         conta4.titular = new Cliente();
@@ -110,12 +114,13 @@ class Program
         Console.WriteLine(conta4.GetSaldo());
         Console.WriteLine(conta4.NumeroAgencia);*/
 
-        ContaCorrente conta5 = new ContaCorrente(283, "1234-X", new Cliente ("Nome", "CPF", "Profissão"));
+        //Teste final usando os metodos construtores e propriedades das classes nos objetos
+        /*ContaCorrente conta5 = new ContaCorrente(283, "1234-X", new Cliente ("Nome", "CPF", "Profissão"));
         Console.WriteLine(ContaCorrente.TotalDeContasCriadas);
 
         ContaCorrente conta6 = new ContaCorrente(283, "1234-X", new Cliente ("Cliente", "CPF", "Profissão"));
         Console.WriteLine(ContaCorrente.TotalDeContasCriadas);
 
-        Console.WriteLine(conta6.titular.Cpf);
+        Console.WriteLine(conta6.titular.Cpf);*/
     }
 }
