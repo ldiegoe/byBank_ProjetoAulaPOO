@@ -44,7 +44,7 @@ namespace byBank.Conta
                 throw new ArgumentException("Número de agência menor ou igual a zero!", nameof(NumeroAgencia));
             }
             //DivideByZeroException para que a taxa de operação não seja divida por zero
-            //Essa excessão vai ficar comentada pois até o momento não se faz necessaria.
+            //Essa exceção vai ficar comentada pois até o momento não se faz necessaria.
             /*try
             {
                 TaxaOperacao = 30 / TotalDeContasCriadas;
