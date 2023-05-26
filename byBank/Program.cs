@@ -122,5 +122,14 @@ class Program
         Console.WriteLine(ContaCorrente.TotalDeContasCriadas);
 
         Console.WriteLine(conta6.titular.Cpf);*/
+        
+        ContaCorrente conta6 = new ContaCorrente(284,"1235-C", new Cliente("Maria","00011122233","Gerente Comercial"));
+        Console.WriteLine(ContaCorrente.TaxaOperacao);
+        Console.ReadKey();
+        
+
+
+
+
     }
 }

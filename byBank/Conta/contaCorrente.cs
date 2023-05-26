@@ -10,6 +10,8 @@ namespace byBank.Conta
 {
     public class ContaCorrente
     {   //Atributos e Propriedades
+        
+        public static float TaxaOperacao { get; private set; }
         public static int TotalDeContasCriadas { get; private set; }
 
         private int numeroAgencia;
@@ -36,6 +38,17 @@ namespace byBank.Conta
             this.NumeroAgencia = agencia;
             this.Conta = conta;
             this.titular = titular;
+
+            try
+            {
+                TaxaOperacao = 30 / TotalDeContasCriadas;
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Ocorreu um erro, não é possível fazer a divisão por zero!");
+                throw;
+            }
+            
             ContaCorrente.TotalDeContasCriadas++;
         }
 
