@@ -5,7 +5,7 @@ using System;
 class Program
 {
     static void Main(string[] args)
-    {   
+    {
         //Iniciando os testes de objetos e definindo valiações
         /*ContaCorrente contaDoAndre = new ContaCorrente();
         contaDoAndre.titular = "André Silva";
@@ -94,7 +94,7 @@ class Program
         conta2.saldo = 500;
 
         Console.WriteLine("Titular = " + conta2.titular.nome);*/
-        
+
         //Testando o metodo SetSaldo
         /*ContaCorrente conta3 = new ContaCorrente();
         conta3.SetSaldo(200.0);
@@ -122,14 +122,20 @@ class Program
         Console.WriteLine(ContaCorrente.TotalDeContasCriadas);
 
         Console.WriteLine(conta6.titular.Cpf);*/
-        
-        ContaCorrente conta6 = new ContaCorrente(284,"1235-C", new Cliente("Maria","00011122233","Gerente Comercial"));
+
+        ContaCorrente conta7 = new ContaCorrente(1, "1235-C", new Cliente("Maria", "00011122233", "Gerente Comercial"));
         Console.WriteLine(ContaCorrente.TaxaOperacao);
-        Console.ReadKey();
-        
 
+        try
+        {
+            ContaCorrente contaErro = new ContaCorrente(0, "1235-C", new Cliente("Maria", "00011122233", "Gerente Comercial"));
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine("Parâmetro com erro: " + ex.ParamName);
+            Console.WriteLine("Não foi possível criar a conta!");
+            Console.WriteLine(ex.Message);
 
-
-
+        }
     }
 }

@@ -38,8 +38,14 @@ namespace byBank.Conta
             this.NumeroAgencia = agencia;
             this.Conta = conta;
             this.titular = titular;
-
-            try
+            //ArgumentException para que a agencia não seja menor ou igual a zero
+            if(numeroAgencia <= 0)
+            {
+                throw new ArgumentException("Número de agência menor ou igual a zero!", nameof(NumeroAgencia));
+            }
+            //DivideByZeroException para que a taxa de operação não seja divida por zero
+            //Essa excessão vai ficar comentada pois até o momento não se faz necessaria.
+            /*try
             {
                 TaxaOperacao = 30 / TotalDeContasCriadas;
             }
@@ -47,7 +53,7 @@ namespace byBank.Conta
             {
                 Console.WriteLine("Ocorreu um erro, não é possível fazer a divisão por zero!");
                 throw;
-            }
+            }*/
             
             ContaCorrente.TotalDeContasCriadas++;
         }
