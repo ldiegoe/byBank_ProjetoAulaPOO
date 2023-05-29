@@ -29,7 +29,7 @@ namespace byBank.Conta
 
         public string Conta { get; set; }
 
-        private double saldo;
+        private double saldo = 100.0;
         public Cliente titular { get; set; }
 
         //Metodo Construtor
@@ -44,7 +44,7 @@ namespace byBank.Conta
                 throw new ArgumentException("Número de agência menor ou igual a zero!", nameof(NumeroAgencia));
             }
             //DivideByZeroException para que a taxa de operação não seja divida por zero
-            //Essa exceção vai ficar comentada pois até o momento não se faz necessaria.
+            //Essa exceç ão vai ficar comentada pois até o momento não se faz necessaria.
             /*try
             {
                 TaxaOperacao = 30 / TotalDeContasCriadas;
@@ -77,20 +77,14 @@ namespace byBank.Conta
         {
             if (valor <= saldo)
             {
-                if (valor >= 100.0)
-                {
-                    saldo -= valor;
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                 saldo -= valor;
+                 return true;   
             }
             else
             {
-                return false;
+                throw new SaldoInsuficienteException("Saldo insuficiente para a operação! Saldo atual R$: " + saldo);
             }
+
         }
 
         //Metodo para Transferir

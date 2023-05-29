@@ -1,6 +1,8 @@
-﻿using byBank.Conta;
+﻿using byBank;
+using byBank.Conta;
 using byBank.Titular;
 using System;
+using System.Numerics;
 
 class Program
 {
@@ -123,19 +125,58 @@ class Program
 
         Console.WriteLine(conta6.titular.Cpf);*/
 
-        ContaCorrente conta7 = new ContaCorrente(1, "1235-C", new Cliente("Maria", "00011122233", "Gerente Comercial"));
-        Console.WriteLine(ContaCorrente.TaxaOperacao);
-
+        //Teste com exceções
+        /*
         try
         {
-            ContaCorrente contaErro = new ContaCorrente(0, "1235-C", new Cliente("Maria", "00011122233", "Gerente Comercial"));
+            ContaCorrente conta6 = new ContaCorrente(0, "1235-C", new Cliente("Maria", "00011122233", "Gerente Comercial"));
+            conta6.Sacar(50.0);
+            Console.WriteLine(conta6.GetSaldo());
+            conta6.Sacar(100.0);
+            Console.WriteLine(conta6.GetSaldo());
         }
         catch (ArgumentException ex)
         {
             Console.WriteLine("Parâmetro com erro: " + ex.ParamName);
             Console.WriteLine("Não foi possível criar a conta!");
+            //Console.WriteLine(ex.StackTrace);
             Console.WriteLine(ex.Message);
+        }
+        catch (SaldoInsuficienteException ex)
+        {
+            Console.WriteLine("Operação negada, saldo insuficiente!");
+            Console.WriteLine(ex.Message);
+        }   
+        */
+
+        //com using
+        using (LeitorDeArquivos leitor = new LeitorDeArquivos("contas.txt"))
+        {
+            leitor.LerProximaLinha();
+            leitor.LerProximaLinha();
+            leitor.LerProximaLinha();
+        }
+
+        //usando o try, catch e finally
+        /*try
+        {
+            new LeitorDeArquivos("contas.txt");
+            leitor.LerProximaLinha();
+            leitor.LerProximaLinha();
+            leitor.LerProximaLinha();
+            
 
         }
+        catch (IOException ex) 
+        {
+            Console.WriteLine("Leitura do arquivo interrompida!");
+        }
+        finally
+        {   
+            if (leitor != null)
+            {
+                leitor.Fechar();
+            }
+        }*/        
     }
 }
